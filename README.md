@@ -16,3 +16,9 @@ Considering the bottom row of min_dist effect:
     3) min_dist=0.99: Maximum spacing results in points being evenly distributed; however loses cluster structure.
 
 It’s always advisable to experiment with these parameters to get the best clustering result for the problem at hand.
+
+The PCA projection (left) shows a dense cloud of points centered around the origin with extensive overlap between different colored dots. This is exactly what we expect from PCA — it captures the directions of maximum variance in the data, but fails to separate the different people effectively. We can see that faces from different individuals (different colors) are completely mixed together, making it nearly impossible to identify distinct groups.
+
+The t-SNE projection (middle) shows improvement with well-separated clusters. Each color (representing a different person) forms a distinct, compact group with clear boundaries between different individuals. Notice how t-SNE creates almost perfect local groupings where faces from the same person are pulled very close together while being pushed away from other groups. This is t-SNE’s strength: it excels at preserving local neighborhoods and creating visually distinct clusters. 
+
+The UMAP projection (right) takes a different approach. While the clusters are more spread out compared to t-SNE, this reflects UMAP’s attempt to preserve both local and global structure. We can see that each person still forms recognizable groups, but with more internal variation. Some clusters show slight overlap or are positioned closer together, which might indicate actual similarities between those individuals.
